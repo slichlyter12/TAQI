@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Document Browser View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="DocumentBrowserViewController" customModule="Timeline" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="0fo-ii-Aj5"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="26" y="654"/>
+        </scene>
+        <!--Document Map View Controller-->
+        <scene sceneID="8j7-cr-CjW">
+            <objects>
+                <viewController storyboardIdentifier="DocumentMapViewController" id="djD-j9-Zxx" customClass="DocumentMapViewController" customModule="Timeline" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uDE-Mf-YPi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9Or-MX-F84">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="734"/>
+                            </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzZ-9F-uvK">
+                                <rect key="frame" x="0.0" y="734" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="srg-DV-RKQ"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="pHz-Ff-1Vp"/>
+                                    <barButtonItem style="done" systemItem="done" id="N11-dg-x8j">
+                                        <connections>
+                                            <action selector="doneButtonPressed:" destination="djD-j9-Zxx" id="bV6-Vx-MXn"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="sBm-bP-XgF"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="9Or-MX-F84" secondAttribute="trailing" id="93z-mQ-TXX"/>
+                            <constraint firstItem="tzZ-9F-uvK" firstAttribute="top" secondItem="9Or-MX-F84" secondAttribute="bottom" id="d8m-Ll-KPH"/>
+                            <constraint firstItem="9Or-MX-F84" firstAttribute="top" secondItem="uDE-Mf-YPi" secondAttribute="top" id="fDK-Xs-vjE"/>
+                            <constraint firstItem="9Or-MX-F84" firstAttribute="leading" secondItem="tzZ-9F-uvK" secondAttribute="leading" id="fLa-po-8nx"/>
+                            <constraint firstItem="tzZ-9F-uvK" firstAttribute="bottom" secondItem="fAz-Hf-3SS" secondAttribute="bottom" id="mye-2N-Vgr"/>
+                            <constraint firstItem="9Or-MX-F84" firstAttribute="leading" secondItem="uDE-Mf-YPi" secondAttribute="leading" id="oFb-77-m4G"/>
+                            <constraint firstItem="9Or-MX-F84" firstAttribute="trailing" secondItem="tzZ-9F-uvK" secondAttribute="trailing" id="otX-xI-2s1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fAz-Hf-3SS"/>
+                    </view>
+                    <connections>
+                        <outlet property="doneButton" destination="N11-dg-x8j" id="Mag-rc-QWr"/>
+                        <outlet property="mapView" destination="9Or-MX-F84" id="sPi-sA-EgC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SDK-Xo-iZf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="894" y="654"/>
+        </scene>
+    </scenes>
+</document>
