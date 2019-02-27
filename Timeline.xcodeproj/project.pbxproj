@@ -16,6 +16,7 @@
 		4349018D2194D147006A9672 /* TimelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4349018C2194D147006A9672 /* TimelineTests.swift */; };
 		43580DB8221B868800B48596 /* DocumentMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43580DB7221B868800B48596 /* DocumentMapViewController.swift */; };
 		43580DBC221B9DA800B48596 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43580DBB221B9DA800B48596 /* Location.swift */; };
+		4385676F22265FF600371171 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4385676E22265FF600371171 /* Path.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		4349018E2194D147006A9672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43580DB7221B868800B48596 /* DocumentMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentMapViewController.swift; sourceTree = "<group>"; };
 		43580DBB221B9DA800B48596 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		4385676E22265FF600371171 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				434901752194D147006A9672 /* DocumentBrowserViewController.swift */,
 				43580DB7221B868800B48596 /* DocumentMapViewController.swift */,
 				434901792194D147006A9672 /* Document.swift */,
+				4385676E22265FF600371171 /* Path.swift */,
 				43580DBB221B9DA800B48596 /* Location.swift */,
 				4349017B2194D147006A9672 /* Main.storyboard */,
 				4349017E2194D147006A9672 /* Assets.xcassets */,
@@ -229,6 +232,7 @@
 				434901762194D147006A9672 /* DocumentBrowserViewController.swift in Sources */,
 				434901742194D147006A9672 /* AppDelegate.swift in Sources */,
 				43580DB8221B868800B48596 /* DocumentMapViewController.swift in Sources */,
+				4385676F22265FF600371171 /* Path.swift in Sources */,
 				43580DBC221B9DA800B48596 /* Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

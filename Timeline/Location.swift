@@ -11,7 +11,7 @@ import MapKit
 
 class Location: NSObject, MKAnnotation {
     let timestamp: Date?
-    let title: String?
+    var title: String?
     let coordinate: CLLocationCoordinate2D
     let accuracy: Int?
     let heading: Int?

@@ -27,11 +27,26 @@ class DocumentMapViewController: UIViewController {
         document?.open(completionHandler: {(success) in
             if success {
                 // display content
-                let locations = self.document?.locations
-                self.mapView.addAnnotations(locations!)
+//                let locations = self.document?.locations
+//                self.mapView.addAnnotations(locations!)
+                
+                let paths = self.document?.paths
+                for path in paths! {
+                    let start = path.locations.first!
+                    start.title = "Start"
+                    let end = path.locations.last!
+                    end.title = "End"
+                    self.mapView.addAnnotations([start, end])
+                    let coords = path.locations.map { $0.coordinate }
+                    let line = MKPolyline(coordinates: coords, count: coords.count)
+                    
+                    self.mapView.addOverlay(line)
+                }
             } else {
-                let alert = UIAlertController(title: "Import Failed", message: "Could not read document", preferredStyle: .alert)
-                self.show(alert, sender: nil)
+                let alertController = UIAlertController(title: "Import Failed", message: "Could not read document", preferredStyle: .alert)
+                let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+                alertController.addAction(okayAction)
+                self.show(alertController, sender: nil)
             }
         })
     }
@@ -67,5 +82,15 @@ extension DocumentMapViewController: MKMapViewDelegate {
         }
         
         return view
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay is MKPolyline {
+            let lineView = MKPolylineRenderer(overlay: overlay)
+            lineView.strokeColor = UIColor.orange
+            return lineView
+        }
+        
+        return MKOverlayRenderer()
     }
 }
