@@ -58,6 +58,10 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     
     func documentBrowser(_ controller: UIDocumentBrowserViewController, failedToImportDocumentAt documentURL: URL, error: Error?) {
         // Make sure to handle the failed import appropriately, e.g., by presenting an error message to the user.
+        let alertController = UIAlertController(title: "Import Failed", message: "Your file failed to import with the following error: " + (error?.localizedDescription)!, preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        alertController.addAction(okayAction)
+        show(alertController, sender: nil)
     }
     
     // MARK: Document Presentation
