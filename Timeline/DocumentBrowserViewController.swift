@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SafariServices
 
 class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocumentBrowserViewControllerDelegate {
     
@@ -23,11 +23,24 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
          browserUserInterfaceStyle = .dark
          view.tintColor = .orange
         
+        let openBrowserButton = UIBarButtonItem(title: "Get Timeline", style: .plain, target: self, action: #selector(openTimeline))
+        additionalTrailingNavigationBarButtonItems.append(openBrowserButton)
+        
         // Specify the allowed content types of your application via the Info.plist.
         
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    @objc func openTimeline() {
+        let url = URL(string: "https://takeout.google.com/settings/takeout/custom/location_history")!
+        let svc = SFSafariViewController(url: url)
+        present(svc, animated: true, completion: nil)
+        
+        
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let timelineVC = storyboard.instantiateViewController(withIdentifier: "getTimeline") as! GetTimelineViewController
+//        self.present(timelineVC, animated: true, completion: nil)
+    }
     
     // MARK: UIDocumentBrowserViewControllerDelegate
     

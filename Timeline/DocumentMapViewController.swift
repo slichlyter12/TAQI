@@ -27,8 +27,6 @@ class DocumentMapViewController: UIViewController {
         document?.open(completionHandler: {(success) in
             if success {
                 // display content
-//                let locations = self.document?.locations
-//                self.mapView.addAnnotations(locations!)
                 
                 let paths = self.document?.paths
                 for path in paths! {
