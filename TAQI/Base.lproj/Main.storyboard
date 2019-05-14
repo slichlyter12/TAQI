@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Document Browser View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="DocumentBrowserViewController" customModule="TAQI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="0fo-ii-Aj5"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="823" y="654"/>
+        </scene>
+        <!--Location History-->
+        <scene sceneID="0vX-Cj-mjI">
+            <objects>
+                <viewController storyboardIdentifier="ArcGISMap" id="amJ-Mz-bSq" customClass="DocumentArcGISMapViewController" customModule="TAQI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dcp-CA-5uO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNu-4Y-jyT">
+                                <rect key="frame" x="0.0" y="734" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="2fW-0n-cOS"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="done" systemItem="done" id="bl3-k9-5PV">
+                                        <color key="tintColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
+                                        <connections>
+                                            <action selector="doneButtonPressed:" destination="amJ-Mz-bSq" id="94D-78-9L9"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="J1d-aM-KsD"/>
+                                    <barButtonItem title="Analyze" id="Ei4-xK-dzC">
+                                        <color key="tintColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
+                                        <connections>
+                                            <action selector="analyzeButtonPressed:" destination="amJ-Mz-bSq" id="h7X-Qo-FEm"/>
+                                            <segue destination="jIk-G4-ufU" kind="show" id="Esg-hc-fyj"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNX-aA-JPY" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="734"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bNu-4Y-jyT" firstAttribute="leading" secondItem="SNX-aA-JPY" secondAttribute="leading" id="3dX-N0-j2e"/>
+                            <constraint firstItem="SNX-aA-JPY" firstAttribute="leading" secondItem="sxh-dP-y1p" secondAttribute="leading" id="CtR-hG-DJZ"/>
+                            <constraint firstItem="bNu-4Y-jyT" firstAttribute="bottom" secondItem="sxh-dP-y1p" secondAttribute="bottom" id="dvY-XT-Xzk"/>
+                            <constraint firstItem="SNX-aA-JPY" firstAttribute="trailing" secondItem="sxh-dP-y1p" secondAttribute="trailing" id="igJ-bF-Dhb"/>
+                            <constraint firstItem="bNu-4Y-jyT" firstAttribute="top" secondItem="SNX-aA-JPY" secondAttribute="bottom" id="jdt-wt-YGD"/>
+                            <constraint firstItem="SNX-aA-JPY" firstAttribute="top" secondItem="dcp-CA-5uO" secondAttribute="top" id="sUl-AZ-zfT"/>
+                            <constraint firstItem="bNu-4Y-jyT" firstAttribute="trailing" secondItem="SNX-aA-JPY" secondAttribute="trailing" id="thx-K8-AUe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="sxh-dP-y1p"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Location History" id="2rh-sU-DQU">
+                        <barButtonItem key="backBarButtonItem" title="Documents" id="XT5-mJ-EKn"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="analyzeButton" destination="Ei4-xK-dzC" id="1Sw-ph-Kme"/>
+                        <outlet property="doneButton" destination="bl3-k9-5PV" id="Agv-Lp-UWO"/>
+                        <outlet property="mapView" destination="SNX-aA-JPY" id="E5r-tt-Tsy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XNc-m6-b3U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2604" y="653.94088669950747"/>
+        </scene>
+        <!--Analyze My Data-->
+        <scene sceneID="wBX-lx-Wnz">
+            <objects>
+                <viewController title="Analyze My Data" id="jIk-G4-ufU" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J6P-mN-Ohd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
+                        <viewLayoutGuide key="safeArea" id="gtw-pA-ziQ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0db-ln-Akx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3468" y="654"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GFD-DI-mXk">
+            <objects>
+                <navigationController storyboardIdentifier="navController" automaticallyAdjustsScrollViewInsets="NO" id="hO8-ZU-gKN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="Bhz-gN-n0Y">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="amJ-Mz-bSq" kind="relationship" relationship="rootViewController" id="cw1-nO-2ZO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v0A-xg-55A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1661.5999999999999" y="653.94088669950747"/>
+        </scene>
+    </scenes>
+</document>

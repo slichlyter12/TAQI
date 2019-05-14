@@ -7,16 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4315CF9F224849FC00106D9B /* DocumentArcGISMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4315CF9E224849FC00106D9B /* DocumentArcGISMapViewController.swift */; };
+		43198E2422500C2C00221748 /* Location History.json in Resources */ = {isa = PBXBuildFile; fileRef = 43198E2322500C2C00221748 /* Location History.json */; };
+		432609F9227FA0C60051BCBC /* ArcGIS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432609F8227FA0C60051BCBC /* ArcGIS.framework */; };
+		432609FA227FA0C60051BCBC /* ArcGIS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 432609F8227FA0C60051BCBC /* ArcGIS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		43399179227A68A9000C8E28 /* AnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43399178227A68A9000C8E28 /* AnalysisViewController.swift */; };
 		434901742194D147006A9672 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434901732194D147006A9672 /* AppDelegate.swift */; };
 		434901762194D147006A9672 /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434901752194D147006A9672 /* DocumentBrowserViewController.swift */; };
 		4349017A2194D147006A9672 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434901792194D147006A9672 /* Document.swift */; };
 		4349017D2194D147006A9672 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4349017B2194D147006A9672 /* Main.storyboard */; };
 		4349017F2194D147006A9672 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4349017E2194D147006A9672 /* Assets.xcassets */; };
 		434901822194D147006A9672 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 434901802194D147006A9672 /* LaunchScreen.storyboard */; };
-		4349018D2194D147006A9672 /* TimelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4349018C2194D147006A9672 /* TimelineTests.swift */; };
-		43580DB8221B868800B48596 /* DocumentMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43580DB7221B868800B48596 /* DocumentMapViewController.swift */; };
+		4349018D2194D147006A9672 /* TAQITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4349018C2194D147006A9672 /* TAQITests.swift */; };
+		434C63B922679B6900C0B576 /* pnw.tif in Resources */ = {isa = PBXBuildFile; fileRef = 434C63B822679B6900C0B576 /* pnw.tif */; };
 		43580DBC221B9DA800B48596 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43580DBB221B9DA800B48596 /* Location.swift */; };
 		4385676F22265FF600371171 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4385676E22265FF600371171 /* Path.swift */; };
+		43E82D702252AC8A00160356 /* ArcGIS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 43E82D6F2252AC8A00160356 /* ArcGIS.bundle */; };
+		43F69E7B2256922D0001175F /* magma.clr in Resources */ = {isa = PBXBuildFile; fileRef = 43F69E7A2256922D0001175F /* magma.clr */; };
+		53CA24E453FCA79F88A6533C /* Pods_TAQITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC4BF00C8D5C4FB47414FDC /* Pods_TAQITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +38,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		432609FB227FA0C60051BCBC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				432609FA227FA0C60051BCBC /* ArcGIS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		434901A92194D29F006A9672 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -43,7 +62,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		434901702194D147006A9672 /* Timeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4315CF9E224849FC00106D9B /* DocumentArcGISMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentArcGISMapViewController.swift; sourceTree = "<group>"; };
+		43198E2322500C2C00221748 /* Location History.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "Location History.json"; path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/Documents/Timeline - Dev/Location History.json"; sourceTree = "<group>"; };
+		432609F8227FA0C60051BCBC /* ArcGIS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArcGIS.framework; path = ../../../../Library/SDKs/ArcGIS/iOS/Frameworks/Dynamic/ArcGIS.framework; sourceTree = "<group>"; };
+		43399178227A68A9000C8E28 /* AnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisViewController.swift; sourceTree = "<group>"; };
+		434901702194D147006A9672 /* TAQI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TAQI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		434901732194D147006A9672 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		434901752194D147006A9672 /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
 		434901792194D147006A9672 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
@@ -51,12 +74,18 @@
 		4349017E2194D147006A9672 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		434901812194D147006A9672 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		434901832194D147006A9672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		434901882194D147006A9672 /* TimelineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimelineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4349018C2194D147006A9672 /* TimelineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTests.swift; sourceTree = "<group>"; };
+		434901882194D147006A9672 /* TAQITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TAQITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4349018C2194D147006A9672 /* TAQITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TAQITests.swift; sourceTree = "<group>"; };
 		4349018E2194D147006A9672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		43580DB7221B868800B48596 /* DocumentMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentMapViewController.swift; sourceTree = "<group>"; };
+		434C63B822679B6900C0B576 /* pnw.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = pnw.tif; sourceTree = "<group>"; };
 		43580DBB221B9DA800B48596 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		4385676E22265FF600371171 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
+		43E82D6F2252AC8A00160356 /* ArcGIS.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ArcGIS.bundle; path = ../../../../../Library/SDKs/ArcGIS/iOS/Frameworks/Static/ArcGIS.framework/Versions/Current/Resources/ArcGIS.bundle; sourceTree = "<group>"; };
+		43F69E7A2256922D0001175F /* magma.clr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = magma.clr; sourceTree = "<group>"; };
+		5AC4BF00C8D5C4FB47414FDC /* Pods_TAQITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TAQITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		61E36300214CF319152C974A /* Pods_TAQI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TAQI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7CEA67E369BC73045A08C7C /* Pods_TimelineTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimelineTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B753DE4A1B4A39946D5AD648 /* Pods_Timeline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Timeline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				432609F9227FA0C60051BCBC /* ArcGIS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53CA24E453FCA79F88A6533C /* Pods_TAQITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,72 +111,93 @@
 		434901672194D147006A9672 = {
 			isa = PBXGroup;
 			children = (
-				434901722194D147006A9672 /* Timeline */,
-				4349018B2194D147006A9672 /* TimelineTests */,
+				432609F8227FA0C60051BCBC /* ArcGIS.framework */,
+				434901722194D147006A9672 /* TAQI */,
+				4349018B2194D147006A9672 /* TAQITests */,
 				434901712194D147006A9672 /* Products */,
+				60B32660D3CF24B4B3817EEF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		434901712194D147006A9672 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				434901702194D147006A9672 /* Timeline.app */,
-				434901882194D147006A9672 /* TimelineTests.xctest */,
+				434901702194D147006A9672 /* TAQI.app */,
+				434901882194D147006A9672 /* TAQITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		434901722194D147006A9672 /* Timeline */ = {
+		434901722194D147006A9672 /* TAQI */ = {
 			isa = PBXGroup;
 			children = (
+				43E82D6F2252AC8A00160356 /* ArcGIS.bundle */,
 				434901732194D147006A9672 /* AppDelegate.swift */,
 				434901752194D147006A9672 /* DocumentBrowserViewController.swift */,
-				43580DB7221B868800B48596 /* DocumentMapViewController.swift */,
+				4315CF9E224849FC00106D9B /* DocumentArcGISMapViewController.swift */,
 				434901792194D147006A9672 /* Document.swift */,
 				4385676E22265FF600371171 /* Path.swift */,
 				43580DBB221B9DA800B48596 /* Location.swift */,
+				43399178227A68A9000C8E28 /* AnalysisViewController.swift */,
 				4349017B2194D147006A9672 /* Main.storyboard */,
 				4349017E2194D147006A9672 /* Assets.xcassets */,
 				434901802194D147006A9672 /* LaunchScreen.storyboard */,
 				434901832194D147006A9672 /* Info.plist */,
+				434C63B822679B6900C0B576 /* pnw.tif */,
+				43F69E7A2256922D0001175F /* magma.clr */,
 			);
-			path = Timeline;
+			path = TAQI;
 			sourceTree = "<group>";
 		};
-		4349018B2194D147006A9672 /* TimelineTests */ = {
+		4349018B2194D147006A9672 /* TAQITests */ = {
 			isa = PBXGroup;
 			children = (
-				4349018C2194D147006A9672 /* TimelineTests.swift */,
+				4349018C2194D147006A9672 /* TAQITests.swift */,
+				43198E2322500C2C00221748 /* Location History.json */,
 				4349018E2194D147006A9672 /* Info.plist */,
 			);
-			path = TimelineTests;
+			path = TAQITests;
+			sourceTree = "<group>";
+		};
+		60B32660D3CF24B4B3817EEF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B753DE4A1B4A39946D5AD648 /* Pods_Timeline.framework */,
+				A7CEA67E369BC73045A08C7C /* Pods_TimelineTests.framework */,
+				61E36300214CF319152C974A /* Pods_TAQI.framework */,
+				5AC4BF00C8D5C4FB47414FDC /* Pods_TAQITests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4349016F2194D147006A9672 /* Timeline */ = {
+		4349016F2194D147006A9672 /* TAQI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 434901912194D147006A9672 /* Build configuration list for PBXNativeTarget "Timeline" */;
+			buildConfigurationList = 434901912194D147006A9672 /* Build configuration list for PBXNativeTarget "TAQI" */;
 			buildPhases = (
 				4349016C2194D147006A9672 /* Sources */,
 				4349016D2194D147006A9672 /* Frameworks */,
 				4349016E2194D147006A9672 /* Resources */,
 				434901A92194D29F006A9672 /* Embed App Extensions */,
+				432609FB227FA0C60051BCBC /* Embed Frameworks */,
+				432609F7227FA0440051BCBC /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Timeline;
+			name = TAQI;
 			productName = Timeline;
-			productReference = 434901702194D147006A9672 /* Timeline.app */;
+			productReference = 434901702194D147006A9672 /* TAQI.app */;
 			productType = "com.apple.product-type.application";
 		};
-		434901872194D147006A9672 /* TimelineTests */ = {
+		434901872194D147006A9672 /* TAQITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 434901942194D147006A9672 /* Build configuration list for PBXNativeTarget "TimelineTests" */;
+			buildConfigurationList = 434901942194D147006A9672 /* Build configuration list for PBXNativeTarget "TAQITests" */;
 			buildPhases = (
+				D5234E0095A217018CB93940 /* [CP] Check Pods Manifest.lock */,
 				434901842194D147006A9672 /* Sources */,
 				434901852194D147006A9672 /* Frameworks */,
 				434901862194D147006A9672 /* Resources */,
@@ -155,9 +207,9 @@
 			dependencies = (
 				4349018A2194D147006A9672 /* PBXTargetDependency */,
 			);
-			name = TimelineTests;
+			name = TAQITests;
 			productName = TimelineTests;
-			productReference = 434901882194D147006A9672 /* TimelineTests.xctest */;
+			productReference = 434901882194D147006A9672 /* TAQITests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -172,6 +224,7 @@
 				TargetAttributes = {
 					4349016F2194D147006A9672 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
@@ -180,11 +233,12 @@
 					};
 					434901872194D147006A9672 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 4349016F2194D147006A9672;
 					};
 				};
 			};
-			buildConfigurationList = 4349016B2194D147006A9672 /* Build configuration list for PBXProject "Timeline" */;
+			buildConfigurationList = 4349016B2194D147006A9672 /* Build configuration list for PBXProject "TAQI" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -197,8 +251,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4349016F2194D147006A9672 /* Timeline */,
-				434901872194D147006A9672 /* TimelineTests */,
+				4349016F2194D147006A9672 /* TAQI */,
+				434901872194D147006A9672 /* TAQITests */,
 			);
 		};
 /* End PBXProject section */
@@ -210,7 +264,10 @@
 			files = (
 				434901822194D147006A9672 /* LaunchScreen.storyboard in Resources */,
 				4349017F2194D147006A9672 /* Assets.xcassets in Resources */,
+				43E82D702252AC8A00160356 /* ArcGIS.bundle in Resources */,
+				434C63B922679B6900C0B576 /* pnw.tif in Resources */,
 				4349017D2194D147006A9672 /* Main.storyboard in Resources */,
+				43F69E7B2256922D0001175F /* magma.clr in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,10 +275,53 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43198E2422500C2C00221748 /* Location History.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		432609F7227FA0440051BCBC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/ArcGIS.framework/strip-frameworks.sh\"\n";
+		};
+		D5234E0095A217018CB93940 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TAQITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4349016C2194D147006A9672 /* Sources */ = {
@@ -231,7 +331,8 @@
 				4349017A2194D147006A9672 /* Document.swift in Sources */,
 				434901762194D147006A9672 /* DocumentBrowserViewController.swift in Sources */,
 				434901742194D147006A9672 /* AppDelegate.swift in Sources */,
-				43580DB8221B868800B48596 /* DocumentMapViewController.swift in Sources */,
+				43399179227A68A9000C8E28 /* AnalysisViewController.swift in Sources */,
+				4315CF9F224849FC00106D9B /* DocumentArcGISMapViewController.swift in Sources */,
 				4385676F22265FF600371171 /* Path.swift in Sources */,
 				43580DBC221B9DA800B48596 /* Location.swift in Sources */,
 			);
@@ -241,7 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4349018D2194D147006A9672 /* TimelineTests.swift in Sources */,
+				4349018D2194D147006A9672 /* TAQITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +351,7 @@
 /* Begin PBXTargetDependency section */
 		4349018A2194D147006A9672 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4349016F2194D147006A9672 /* Timeline */;
+			target = 4349016F2194D147006A9672 /* TAQI */;
 			targetProxy = 434901892194D147006A9672 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -394,17 +495,31 @@
 		434901922194D147006A9672 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L3W5FDZG36;
-				INFOPLIST_FILE = Timeline/Info.plist;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(HOME)/Library/SDKs/ArcGIS/iOS/Frameworks/Static",
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/SDKs/ArcGIS/iOS/Frameworks/Dynamic",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/TAQI/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.samuellichlyter.Timeline;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					ArcGIS,
+					"-l",
+					"c++",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.samuellichlyter.TAQI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -412,17 +527,31 @@
 		434901932194D147006A9672 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L3W5FDZG36;
-				INFOPLIST_FILE = Timeline/Info.plist;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(HOME)/Library/SDKs/ArcGIS/iOS/Frameworks/Static",
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/SDKs/ArcGIS/iOS/Frameworks/Dynamic",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/TAQI/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.samuellichlyter.Timeline;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					ArcGIS,
+					"-l",
+					"c++",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.samuellichlyter.TAQI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -442,9 +571,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.samuellichlyter.TimelineTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Timeline.app/Timeline";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TAQI.app/TAQI";
 			};
 			name = Debug;
 		};
@@ -463,16 +592,16 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.samuellichlyter.TimelineTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Timeline.app/Timeline";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TAQI.app/TAQI";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4349016B2194D147006A9672 /* Build configuration list for PBXProject "Timeline" */ = {
+		4349016B2194D147006A9672 /* Build configuration list for PBXProject "TAQI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4349018F2194D147006A9672 /* Debug */,
@@ -481,7 +610,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		434901912194D147006A9672 /* Build configuration list for PBXNativeTarget "Timeline" */ = {
+		434901912194D147006A9672 /* Build configuration list for PBXNativeTarget "TAQI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				434901922194D147006A9672 /* Debug */,
@@ -490,7 +619,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		434901942194D147006A9672 /* Build configuration list for PBXNativeTarget "TimelineTests" */ = {
+		434901942194D147006A9672 /* Build configuration list for PBXNativeTarget "TAQITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				434901952194D147006A9672 /* Debug */,

@@ -23,15 +23,18 @@ class Document: UIDocument {
                 if let locations = dictionary["locations"] as? [Any] {
                     let validLocations = locations.compactMap { Location(google: $0 as! [String : Any])}
                     self.locations = validLocations
-                    generatePaths(locations: validLocations.reversed())
-                } else if let locations = dictionary["features"] as? [Any] {
-                    let validLocations = locations.compactMap { Location(geojson: $0 as! [String: Any])}
-                    self.locations = validLocations
-            }
+                    generatePaths(locations: validLocations)
+                    // Google updated file structure so now they no longer need to be reversed (older files will show incorrect results)
+                }
         } else { return }
     }
     
     func generatePaths(locations: [Location]) {
+        
+        if locations.count == 0 {
+            return
+        }
+        
         var paths: [Path] = []
         var pathLocations: [Location] = []
         pathLocations.append(locations[0])
@@ -42,6 +45,7 @@ class Document: UIDocument {
             let fifteenMinutes = calendar.date(byAdding: .minute, value: 15, to: lastTimestamp)
             if location.timestamp! < fifteenMinutes! {
                 pathLocations.append(location)
+                print("adding to old path")
             } else {
                 if pathLocations.count > 2 {
                     let path = Path(locations: pathLocations)
@@ -49,9 +53,20 @@ class Document: UIDocument {
                 }
                 pathLocations.removeAll()
                 pathLocations.append(location)
+                print("making new path")
+            }
+            
+            // if last location, make a path
+            if location == locations.last! {
+                print("********* Saving last path *********")
+                if pathLocations.count > 2 {
+                    let path = Path(locations: pathLocations)
+                    paths.append(path)
+                }
             }
         }
         
+        print("Num Paths: \(paths.count)")
         self.paths = paths
     }
 }

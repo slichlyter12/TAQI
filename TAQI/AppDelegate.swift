@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Timeline
+//  TAQI
 //
 //  Created by Samuel Lichlyter on 11/8/18.
 //  Copyright © 2018 Samuel Lichlyter. All rights reserved.

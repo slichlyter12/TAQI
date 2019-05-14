@@ -23,7 +23,7 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
          browserUserInterfaceStyle = .dark
          view.tintColor = .orange
         
-        let openBrowserButton = UIBarButtonItem(title: "Get Timeline", style: .plain, target: self, action: #selector(openTimeline))
+        let openBrowserButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openTimeline))
         additionalTrailingNavigationBarButtonItems.append(openBrowserButton)
         
         // Specify the allowed content types of your application via the Info.plist.
@@ -35,11 +35,6 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         let url = URL(string: "https://takeout.google.com/settings/takeout/custom/location_history")!
         let svc = SFSafariViewController(url: url)
         present(svc, animated: true, completion: nil)
-        
-        
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let timelineVC = storyboard.instantiateViewController(withIdentifier: "getTimeline") as! GetTimelineViewController
-//        self.present(timelineVC, animated: true, completion: nil)
     }
     
     // MARK: UIDocumentBrowserViewControllerDelegate
@@ -82,10 +77,15 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     func presentDocument(at documentURL: URL) {
         
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let documentViewController = storyBoard.instantiateViewController(withIdentifier: "DocumentMapViewController") as! DocumentMapViewController
+        let navController = storyBoard.instantiateViewController(withIdentifier: "navController")
+        let documentViewController = navController.children[0] as! DocumentArcGISMapViewController
         documentViewController.document = Document(fileURL: documentURL)
-                
-        present(documentViewController, animated: true, completion: nil)
+        present(navController, animated: true, completion: nil)
+        
+//        let documentViewController = storyBoard.instantiateViewController(withIdentifier: "ArcGISMap") as! DocumentArcGISMapViewController
+//        documentViewController.document = Document(fileURL: documentURL)
+//
+//        present(documentViewController, animated: true, completion: nil)
     }
 }
 
