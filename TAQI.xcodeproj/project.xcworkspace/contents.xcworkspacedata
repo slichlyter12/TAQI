@@ -2,7 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../Podfile">
+      location = "group:/Users/samuellichlyter/Documents/College/Year 6 (2018-2019)/TAQI/TAQI/magma.clr">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/samuellichlyter/Documents/College/Year 6 (2018-2019)/TAQI/TAQI/pnw.tif">
    </FileRef>
    <FileRef
       location = "self:">
