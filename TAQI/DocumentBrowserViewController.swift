@@ -78,7 +78,7 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let navController = storyBoard.instantiateViewController(withIdentifier: "navController")
-        let documentViewController = navController.children[0] as! DocumentArcGISMapViewController
+        let documentViewController = navController.children[0] as! DocumentMapViewController
         documentViewController.document = Document(fileURL: documentURL)
         present(navController, animated: true, completion: nil)
         

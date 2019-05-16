@@ -17,6 +17,7 @@ class Location: NSObject, MKAnnotation {
     let altitude: Int?
     let verticalAccuracy: Int?
     let velocity: Int?
+    var aqi: Double?
     
     init?(google: [String: Any]) {
         let timestamp = Double(google["timestampMs"] as! String)
@@ -26,7 +27,8 @@ class Location: NSObject, MKAnnotation {
         if
             let latitude = google["latitudeE7"] as? Double,
             let longitude = google["longitudeE7"] as? Double {
-            self.coordinate = CLLocationCoordinate2D(latitude: latitude / 1e7, longitude: longitude / 1e7) // divide by 1e7 because that's what format Google Location data is in
+            let coordinate = CLLocationCoordinate2D(latitude: latitude / 1e7, longitude: longitude / 1e7) // divide by 1e7 because that's what format Google Location data is in
+            self.coordinate = coordinate
         } else {
             self.coordinate = CLLocationCoordinate2D()
         }
@@ -36,5 +38,6 @@ class Location: NSObject, MKAnnotation {
         self.altitude = google["altitude"] as? Int
         self.verticalAccuracy = google["verticalAccuracy"] as? Int
         self.velocity = google["velocity"] as? Int
+        self.aqi = nil
     }
 }

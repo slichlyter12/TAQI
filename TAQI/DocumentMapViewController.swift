@@ -9,7 +9,7 @@
 import UIKit
 import ArcGIS
 
-class DocumentArcGISMapViewController: UIViewController {
+class DocumentMapViewController: UIViewController {
     
     // UI
     @IBOutlet weak var mapView: AGSMapView!
@@ -33,6 +33,8 @@ class DocumentArcGISMapViewController: UIViewController {
         createGraphicsOverlay()
         setupPoints()
     }
+    
+    // MARK: - ArcGIS
     
     private func setupMap() {
         self.map = AGSMap(basemapType: .lightGrayCanvasVector, latitude: 44.5637844, longitude: -123.281633, levelOfDetail: 10)
@@ -75,13 +77,19 @@ class DocumentArcGISMapViewController: UIViewController {
     private func setupRaster() {
         
         let raster = AGSRaster(name: "pnw", extension: "tif")
-        print(raster.self)
         let rasterLayer = AGSRasterLayer(raster: raster)
-        print(rasterLayer.self)
         
-        // Get colors
+        let colors = getColors(filename: "magma")
+        let renderer = AGSColormapRenderer(colors: colors)
+        rasterLayer.renderer = renderer
+        
+        self.mapView.map?.operationalLayers.add(rasterLayer)
+        self.rasterLayer = rasterLayer
+    }
+    
+    private func getColors(filename: String) -> [UIColor] {
         var colors: [UIColor] = []
-        if let path = Bundle.main.path(forResource: "magma", ofType: "clr") {
+        if let path = Bundle.main.path(forResource: filename, ofType: "clr") {
             do {
                 let data = try String(contentsOfFile: path, encoding: .utf8)
                 let lines = data.components(separatedBy: .newlines)
@@ -97,12 +105,11 @@ class DocumentArcGISMapViewController: UIViewController {
                 print(error)
             }
         }
-        let renderer = AGSColormapRenderer(colors: colors)
-        rasterLayer.renderer = renderer
         
-        self.mapView.map?.operationalLayers.add(rasterLayer)
-        self.rasterLayer = rasterLayer
+        return colors
     }
+    
+    // MARK: - Navigation
     
     @IBAction func doneButtonPressed(_ sender: Any) {
         dismiss(animated: true) {
@@ -110,10 +117,15 @@ class DocumentArcGISMapViewController: UIViewController {
         }
     }
     
-    @IBAction func analyzeButtonPressed(_ sender: Any) {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let analyzeVC = storyboard.instantiateViewController(withIdentifier: "analyzeVC") as! AnalysisViewController
-//        analyzeVC.paths = self.paths
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.identifier
+        switch destination {
+        case "analyzeSegue":
+            if let analysisVC = segue.destination as? AnalysisViewController {
+                analysisVC.document = self.document
+            }
+        default: break
+        }
     }
     
 }

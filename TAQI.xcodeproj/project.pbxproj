@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4315CF9F224849FC00106D9B /* DocumentArcGISMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4315CF9E224849FC00106D9B /* DocumentArcGISMapViewController.swift */; };
 		43198E2422500C2C00221748 /* Location History.json in Resources */ = {isa = PBXBuildFile; fileRef = 43198E2322500C2C00221748 /* Location History.json */; };
 		432609F9227FA0C60051BCBC /* ArcGIS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432609F8227FA0C60051BCBC /* ArcGIS.framework */; };
 		432609FA227FA0C60051BCBC /* ArcGIS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 432609F8227FA0C60051BCBC /* ArcGIS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -23,6 +22,7 @@
 		438E6519228B852A00A11491 /* pnw.tif in Resources */ = {isa = PBXBuildFile; fileRef = 438E6517228B852A00A11491 /* pnw.tif */; };
 		438E651A228B852A00A11491 /* magma.clr in Resources */ = {isa = PBXBuildFile; fileRef = 438E6518228B852A00A11491 /* magma.clr */; };
 		438E651C228B8D7600A11491 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 438E651B228B8D7500A11491 /* Assets.xcassets */; };
+		438E651E228DD0C100A11491 /* DocumentMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438E651D228DD0C100A11491 /* DocumentMapViewController.swift */; };
 		43E82D702252AC8A00160356 /* ArcGIS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 43E82D6F2252AC8A00160356 /* ArcGIS.bundle */; };
 		53CA24E453FCA79F88A6533C /* Pods_TAQITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC4BF00C8D5C4FB47414FDC /* Pods_TAQITests.framework */; };
 /* End PBXBuildFile section */
@@ -62,7 +62,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4315CF9E224849FC00106D9B /* DocumentArcGISMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentArcGISMapViewController.swift; sourceTree = "<group>"; };
 		43198E2322500C2C00221748 /* Location History.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "Location History.json"; path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/Documents/Timeline - Dev/Location History.json"; sourceTree = "<group>"; };
 		432609F8227FA0C60051BCBC /* ArcGIS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArcGIS.framework; path = ../../../../Library/SDKs/ArcGIS/iOS/Frameworks/Dynamic/ArcGIS.framework; sourceTree = "<group>"; };
 		43399178227A68A9000C8E28 /* AnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +80,7 @@
 		438E6517228B852A00A11491 /* pnw.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = pnw.tif; sourceTree = "<group>"; };
 		438E6518228B852A00A11491 /* magma.clr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = magma.clr; sourceTree = "<group>"; };
 		438E651B228B8D7500A11491 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		438E651D228DD0C100A11491 /* DocumentMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentMapViewController.swift; sourceTree = "<group>"; };
 		43E82D6F2252AC8A00160356 /* ArcGIS.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ArcGIS.bundle; path = ../../../../../Library/SDKs/ArcGIS/iOS/Frameworks/Static/ArcGIS.framework/Versions/Current/Resources/ArcGIS.bundle; sourceTree = "<group>"; };
 		5AC4BF00C8D5C4FB47414FDC /* Pods_TAQITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TAQITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61E36300214CF319152C974A /* Pods_TAQI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TAQI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,11 +134,11 @@
 				43E82D6F2252AC8A00160356 /* ArcGIS.bundle */,
 				434901732194D147006A9672 /* AppDelegate.swift */,
 				434901752194D147006A9672 /* DocumentBrowserViewController.swift */,
-				4315CF9E224849FC00106D9B /* DocumentArcGISMapViewController.swift */,
+				438E651D228DD0C100A11491 /* DocumentMapViewController.swift */,
+				43399178227A68A9000C8E28 /* AnalysisViewController.swift */,
 				434901792194D147006A9672 /* Document.swift */,
 				4385676E22265FF600371171 /* Path.swift */,
 				43580DBB221B9DA800B48596 /* Location.swift */,
-				43399178227A68A9000C8E28 /* AnalysisViewController.swift */,
 				4349017B2194D147006A9672 /* Main.storyboard */,
 				438E651B228B8D7500A11491 /* Assets.xcassets */,
 				434901802194D147006A9672 /* LaunchScreen.storyboard */,
@@ -330,9 +330,9 @@
 			files = (
 				4349017A2194D147006A9672 /* Document.swift in Sources */,
 				434901762194D147006A9672 /* DocumentBrowserViewController.swift in Sources */,
+				438E651E228DD0C100A11491 /* DocumentMapViewController.swift in Sources */,
 				434901742194D147006A9672 /* AppDelegate.swift in Sources */,
 				43399179227A68A9000C8E28 /* AnalysisViewController.swift in Sources */,
-				4315CF9F224849FC00106D9B /* DocumentArcGISMapViewController.swift in Sources */,
 				4385676F22265FF600371171 /* Path.swift in Sources */,
 				43580DBC221B9DA800B48596 /* Location.swift in Sources */,
 			);
