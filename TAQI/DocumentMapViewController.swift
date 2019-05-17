@@ -8,6 +8,7 @@
 
 import UIKit
 import ArcGIS
+import GoogleMaps
 
 class DocumentMapViewController: UIViewController {
     
@@ -31,14 +32,26 @@ class DocumentMapViewController: UIViewController {
     private var rasterLayer: AGSRasterLayer!
     private var graphicsOverlay: AGSGraphicsOverlay!
     
+    // Google
+    private var googleMapView: GMSMapView!
+    
+    private var heatmapLayer: GMUHeatmapTileLayer!
+    private var gradientColors: [UIColor] = [.blue, .red]
+    private var gradientStartPoints: [NSNumber] = [0.1, 1.0]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // ArcGIS
         self.view.addSubview(arcGISMapView)
         setupLayout(mapView: arcGISMapView)
         
         setupRaster()
         createGraphicsOverlay()
+        
+        // Google
+        setupGoogleMap()
+        setupLayout(mapView: googleMapView)
         setupPoints()
     }
     
@@ -53,9 +66,15 @@ class DocumentMapViewController: UIViewController {
         document?.open(completionHandler: { (success) in
             if success {
                 let paths = self.document?.paths
+                var list = [GMUWeightedLatLng]()
                 for path in paths! {
-//                    self.drawPath(path: path)
+                    for loc in path.locations {
+                        let coord = GMUWeightedLatLng(coordinate: loc.coordinate, intensity: 1.0)
+                        list.append(coord)
+                    }
                 }
+                self.heatmapLayer.weightedData = list
+                self.heatmapLayer.map = self.googleMapView
             } else {
                 let alertController = UIAlertController(title: "Import Failed", message: "Could not read document", preferredStyle: .alert)
                 let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
@@ -113,6 +132,22 @@ class DocumentMapViewController: UIViewController {
         return colors
     }
     
+    // MARK: - Google
+    private func setupGoogleMap() {
+        let camera = GMSCameraPosition(latitude: 44.5637844, longitude: -123.281633, zoom: 13)
+        googleMapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
+        self.view.addSubview(googleMapView)
+        googleMapView.isHidden = true
+        setupGoogleHeatmap()
+    }
+    
+    private func setupGoogleHeatmap() {
+        heatmapLayer = GMUHeatmapTileLayer()
+        heatmapLayer.radius = 50
+        heatmapLayer.opacity = 0.8
+        heatmapLayer.gradient = GMUGradient(colors: gradientColors, startPoints: gradientStartPoints, colorMapSize: 512)
+    }
+    
     // MARK: - Navigation
     
     @IBAction func doneButtonPressed(_ sender: Any) {
@@ -143,4 +178,20 @@ class DocumentMapViewController: UIViewController {
         mapView.bottomAnchor.constraint(equalTo: mapSegmentedControl.topAnchor, constant: -10).isActive = true
     }
     
+    @IBAction func mapSegmentedControlChanged(_ sender: Any) {
+        let selected = MapState(rawValue: mapSegmentedControl.selectedSegmentIndex)!
+        switch selected {
+        case .arcgis:
+            arcGISMapView.isHidden = false
+            googleMapView.isHidden = true
+        case .google:
+            arcGISMapView.isHidden = true
+            googleMapView.isHidden = false
+        }
+    }
+}
+
+enum MapState: Int {
+    case arcgis = 0
+    case google
 }

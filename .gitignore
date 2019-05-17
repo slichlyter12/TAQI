@@ -2,3 +2,4 @@
 **/*.tiff
 **/*.tif
 **/.build
+Pods/
