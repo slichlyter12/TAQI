@@ -12,9 +12,15 @@ import ArcGIS
 class DocumentMapViewController: UIViewController {
     
     // UI
-    @IBOutlet weak var mapView: AGSMapView!
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var analyzeButton: UIBarButtonItem!
+    @IBOutlet weak var mapSegmentedControl: UISegmentedControl!
+    
+    private let arcGISMapView: AGSMapView = {
+        let mapView = AGSMapView()
+        mapView.map = AGSMap(basemapType: .lightGrayCanvasVector, latitude: 44.5637844, longitude: -123.281633, levelOfDetail: 13)
+        return mapView
+    }()
     
     
     // Document
@@ -28,7 +34,9 @@ class DocumentMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupMap()
+        self.view.addSubview(arcGISMapView)
+        setupLayout(mapView: arcGISMapView)
+        
         setupRaster()
         createGraphicsOverlay()
         setupPoints()
@@ -36,14 +44,9 @@ class DocumentMapViewController: UIViewController {
     
     // MARK: - ArcGIS
     
-    private func setupMap() {
-        self.map = AGSMap(basemapType: .lightGrayCanvasVector, latitude: 44.5637844, longitude: -123.281633, levelOfDetail: 10)
-        self.mapView.map = map
-    }
-    
     private func createGraphicsOverlay() {
         graphicsOverlay = AGSGraphicsOverlay()
-        self.mapView.graphicsOverlays.add(graphicsOverlay!)
+        self.arcGISMapView.graphicsOverlays.add(graphicsOverlay!)
     }
     
     private func setupPoints() {
@@ -51,7 +54,7 @@ class DocumentMapViewController: UIViewController {
             if success {
                 let paths = self.document?.paths
                 for path in paths! {
-                    self.drawPath(path: path)
+//                    self.drawPath(path: path)
                 }
             } else {
                 let alertController = UIAlertController(title: "Import Failed", message: "Could not read document", preferredStyle: .alert)
@@ -82,8 +85,9 @@ class DocumentMapViewController: UIViewController {
         let colors = getColors(filename: "magma")
         let renderer = AGSColormapRenderer(colors: colors)
         rasterLayer.renderer = renderer
+        rasterLayer.opacity = 0.8
         
-        self.mapView.map?.operationalLayers.add(rasterLayer)
+        self.arcGISMapView.map?.operationalLayers.add(rasterLayer)
         self.rasterLayer = rasterLayer
     }
     
@@ -126,6 +130,17 @@ class DocumentMapViewController: UIViewController {
             }
         default: break
         }
+    }
+    
+    // MARK: - Layout
+    
+    private func setupLayout(mapView: UIView) {
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        
+        mapView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        mapView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        mapView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        mapView.bottomAnchor.constraint(equalTo: mapSegmentedControl.topAnchor, constant: -10).isActive = true
     }
     
 }
