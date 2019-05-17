@@ -4,3 +4,5 @@
 **/.build
 Pods/
 TAQI/AppDelegate.swift
+TAQI.xcworkspace/xcuserdata/
+
