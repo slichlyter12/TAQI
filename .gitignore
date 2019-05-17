@@ -3,3 +3,4 @@
 **/*.tif
 **/.build
 Pods/
+TAQI/AppDelegate.swift
