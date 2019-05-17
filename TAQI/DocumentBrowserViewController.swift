@@ -23,7 +23,7 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
          browserUserInterfaceStyle = .dark
          view.tintColor = .orange
         
-        let openBrowserButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openTimeline))
+        let openBrowserButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openInstructions))
         additionalTrailingNavigationBarButtonItems.append(openBrowserButton)
         
         // Specify the allowed content types of your application via the Info.plist.
@@ -31,10 +31,9 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    @objc func openTimeline() {
-        let url = URL(string: "https://takeout.google.com/settings/takeout/custom/location_history")!
-        let svc = SFSafariViewController(url: url)
-        present(svc, animated: true, completion: nil)
+    @objc func openInstructions() {
+        let instructionsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "instructionsVC")
+        present(instructionsVC, animated: true, completion: nil)
     }
     
     // MARK: UIDocumentBrowserViewControllerDelegate
@@ -81,11 +80,6 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         let documentViewController = navController.children[0] as! DocumentMapViewController
         documentViewController.document = Document(fileURL: documentURL)
         present(navController, animated: true, completion: nil)
-        
-//        let documentViewController = storyBoard.instantiateViewController(withIdentifier: "ArcGISMap") as! DocumentArcGISMapViewController
-//        documentViewController.document = Document(fileURL: documentURL)
-//
-//        present(documentViewController, animated: true, completion: nil)
     }
 }
 

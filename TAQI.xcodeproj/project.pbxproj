@@ -46,6 +46,8 @@
 		438A4E4A228F262600DC1B5B /* GMUHeatmapTileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 438A4E2A228F262500DC1B5B /* GMUHeatmapTileLayer.m */; };
 		438A4E4B228F262600DC1B5B /* GQTPointQuadTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 438A4E2C228F262600DC1B5B /* GQTPointQuadTree.m */; };
 		438A4E4C228F262600DC1B5B /* GQTPointQuadTreeChild.m in Sources */ = {isa = PBXBuildFile; fileRef = 438A4E2E228F262600DC1B5B /* GQTPointQuadTreeChild.m */; };
+		438A4E50228F55B600DC1B5B /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438A4E4F228F55B600DC1B5B /* InstructionsViewController.swift */; };
+		438A4E54228F57BC00DC1B5B /* takeout_instructions.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 438A4E53228F57BC00DC1B5B /* takeout_instructions.rtf */; };
 		438E6519228B852A00A11491 /* pnw.tif in Resources */ = {isa = PBXBuildFile; fileRef = 438E6517228B852A00A11491 /* pnw.tif */; };
 		438E651A228B852A00A11491 /* magma.clr in Resources */ = {isa = PBXBuildFile; fileRef = 438E6518228B852A00A11491 /* magma.clr */; };
 		438E651C228B8D7600A11491 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 438E651B228B8D7500A11491 /* Assets.xcassets */; };
@@ -173,6 +175,8 @@
 		438A4E31228F262600DC1B5B /* GQTPointQuadTreeChild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQTPointQuadTreeChild.h; sourceTree = "<group>"; };
 		438A4E32228F262600DC1B5B /* GQTBounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQTBounds.h; sourceTree = "<group>"; };
 		438A4E4E228F265D00DC1B5B /* TAQI-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TAQI-Bridging-Header.h"; sourceTree = "<group>"; };
+		438A4E4F228F55B600DC1B5B /* InstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
+		438A4E53228F57BC00DC1B5B /* takeout_instructions.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = takeout_instructions.rtf; sourceTree = "<group>"; };
 		438E6517228B852A00A11491 /* pnw.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = pnw.tif; sourceTree = "<group>"; };
 		438E6518228B852A00A11491 /* magma.clr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = magma.clr; sourceTree = "<group>"; };
 		438E651B228B8D7500A11491 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -236,6 +240,7 @@
 				43E82D6F2252AC8A00160356 /* ArcGIS.bundle */,
 				434901732194D147006A9672 /* AppDelegate.swift */,
 				434901752194D147006A9672 /* DocumentBrowserViewController.swift */,
+				438A4E4F228F55B600DC1B5B /* InstructionsViewController.swift */,
 				438E651D228DD0C100A11491 /* DocumentMapViewController.swift */,
 				43399178227A68A9000C8E28 /* AnalysisViewController.swift */,
 				434901792194D147006A9672 /* Document.swift */,
@@ -246,6 +251,7 @@
 				434901802194D147006A9672 /* LaunchScreen.storyboard */,
 				434901832194D147006A9672 /* Info.plist */,
 				438A4E4E228F265D00DC1B5B /* TAQI-Bridging-Header.h */,
+				438A4E53228F57BC00DC1B5B /* takeout_instructions.rtf */,
 				438E6518228B852A00A11491 /* magma.clr */,
 				438E6517228B852A00A11491 /* pnw.tif */,
 			);
@@ -512,6 +518,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				438A4E54228F57BC00DC1B5B /* takeout_instructions.rtf in Resources */,
 				434901822194D147006A9672 /* LaunchScreen.storyboard in Resources */,
 				43E82D702252AC8A00160356 /* ArcGIS.bundle in Resources */,
 				438E651A228B852A00A11491 /* magma.clr in Resources */,
@@ -640,6 +647,7 @@
 				438A4E3A228F262600DC1B5B /* GMUGroundOverlay.m in Sources */,
 				438A4E37228F262600DC1B5B /* GMUPolygon.m in Sources */,
 				438A4E4C228F262600DC1B5B /* GQTPointQuadTreeChild.m in Sources */,
+				438A4E50228F55B600DC1B5B /* InstructionsViewController.swift in Sources */,
 				438A4E4A228F262600DC1B5B /* GMUHeatmapTileLayer.m in Sources */,
 				438A4E49228F262600DC1B5B /* GMUGradient.m in Sources */,
 				438A4E46228F262600DC1B5B /* GMUDefaultClusterIconGenerator.m in Sources */,
