@@ -39,6 +39,30 @@ class DocumentMapViewController: UIViewController {
     private var gradientColors: [UIColor] = [.blue, .red]
     private var gradientStartPoints: [NSNumber] = [0.1, 1.0]
     
+    // From: https://gis.stackexchange.com/questions/7430/what-ratio-scales-do-google-maps-zoom-levels-correspond-to
+    private let zoomScaleReference: [Int: Double] = [
+        20 : 1128.497220,
+        19 : 2256.994440,
+        18 : 4513.988880,
+        17 : 9027.977761,
+        16 : 18055.955520,
+        15 : 36111.911040,
+        14 : 72223.822090,
+        13 : 144447.644200,
+        12 : 288895.288400,
+        11 : 577790.576700,
+        10 : 1155581.153000,
+        9  : 2311162.307000,
+        8  : 4622324.614000,
+        7  : 9244649.227000,
+        6  : 18489298.450000,
+        5  : 36978596.910000,
+        4  : 73957193.820000,
+        3  : 147914387.600000,
+        2  : 295828775.300000,
+        1  : 591657550.500000
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -136,6 +160,7 @@ class DocumentMapViewController: UIViewController {
     private func setupGoogleMap() {
         let camera = GMSCameraPosition(latitude: 44.5637844, longitude: -123.281633, zoom: 13)
         googleMapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
+        googleMapView.settings.tiltGestures = false
         self.view.addSubview(googleMapView)
         googleMapView.isHidden = true
         setupGoogleHeatmap()
@@ -182,12 +207,61 @@ class DocumentMapViewController: UIViewController {
         let selected = MapState(rawValue: mapSegmentedControl.selectedSegmentIndex)!
         switch selected {
         case .arcgis:
+            
+            let googleTarget = googleMapView.camera.target
+            let centerPoint = AGSPoint(clLocationCoordinate2D: googleTarget)
+            let zoom = Int(googleMapView.camera.zoom) > 20 ? 20 : Int(googleMapView.camera.zoom)
+            let realZoom = googleMapView.camera.zoom
+            let scale = zoomScaleReference[zoom]!
+            let bearing = googleMapView.camera.bearing
+            let viewpoint = AGSViewpoint(center: centerPoint, scale: scale, rotation: bearing)
+            arcGISMapView.setViewpoint(viewpoint)
+            
+            print("Zoom: \(zoom)")
+            print("Real Zoom: \(realZoom)")
+            print("Scale: \(scale)")
+            
             arcGISMapView.isHidden = false
             googleMapView.isHidden = true
+            
         case .google:
+            
+            let centerArea = arcGISMapView.currentViewpoint(with: .centerAndScale)!
+            let rotation = centerArea.rotation
+            let scale = centerArea.targetScale
+            print("Scale: \(scale)")
+            let zoom = getZoom(scale: scale)
+            let extent = centerArea.targetGeometry.extent
+            let latLonExtent = AGSGeometryEngine.projectGeometry(extent, to: .wgs84())
+            let lat = latLonExtent!.extent.yMin
+            let lon = latLonExtent!.extent.xMin
+            
+            print("Zoom: \(zoom)")
+            
+            let coord = CLLocationCoordinate2DMake(lat, lon)
+            googleMapView.camera = GMSCameraPosition.camera(withTarget: coord, zoom: Float(zoom), bearing: rotation, viewingAngle: 0)
+            
             arcGISMapView.isHidden = true
             googleMapView.isHidden = false
         }
+    }
+    
+    private func getZoom(scale: Double) -> Int {
+        let values = (zoomScaleReference as NSDictionary).allValues as! [Double]
+        var minDiff = Double(truncating: kCFNumberPositiveInfinity)
+        var min: Double = values.first!
+        for value in values {
+            let diff = abs(value - scale)
+            print(diff)
+            if diff < minDiff {
+                min = value
+                minDiff = diff
+                print("set diff")
+            }
+        }
+        
+        let keys = (zoomScaleReference as NSDictionary).allKeys(for: min) as! [Int]
+        return keys[0]
     }
 }
 
