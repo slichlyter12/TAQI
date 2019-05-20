@@ -10,11 +10,15 @@ import UIKit
 
 class AnalysisViewController: UITableViewController {
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var minLabel: UILabel!
-    @IBOutlet weak var maxLabel: UILabel!
+    let spinner = UIActivityIndicatorView()
     
     var document: Document!
+    var loaded: Bool = false
+    
+    var stats: [AQIStat] = [
+        AQIStat(title: "Minimum AQI", path: nil),
+        AQIStat(title: "Maximum AQI", path: nil)
+    ]
     
     private let dispatchGroup = DispatchGroup()
 
@@ -24,6 +28,50 @@ class AnalysisViewController: UITableViewController {
         // Do any additional setup after loading the view.
         
         getAQIData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if !loaded {
+            setupView()
+            loaded = true
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return stats.count
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "aqiCell", for: indexPath) as! AQIStatTableViewCell
+        let title = stats[indexPath.row].title
+        let path = stats[indexPath.row].path
+        cell.setTitle(title)
+        cell.setPath(path)
+        
+        return cell
+    }
+    
+    private func setupView() {
+        addSpinner()
+        disableCells()
+    }
+    
+    private func addSpinner() {
+        spinner.hidesWhenStopped = true
+        spinner.startAnimating()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: spinner)
+    }
+    
+    private func disableCells() {
+        tableView.isScrollEnabled = false
+        let cells = tableView.visibleCells
+        for cell in cells {
+            cell.isUserInteractionEnabled = false
+        }
     }
     
     private func getAQIData() {
@@ -40,13 +88,17 @@ class AnalysisViewController: UITableViewController {
                         print(error?.localizedDescription ?? "Unknown Error Occurred")
                     } else {
                         if let average = path.averageAQI {
+                            
+                            // get minimum AQI
                             if average < min {
                                 min = average
-                                self.document.minPath = path
+                                self.stats[0].path = path
                             }
+                            
+                            // get max AQI
                             if average > max {
                                 max = average
-                                self.document.maxPath = path
+                                self.stats[1].path = path
                             }
                         }
                     }
@@ -58,30 +110,50 @@ class AnalysisViewController: UITableViewController {
         
         dispatchGroup.notify(queue: .global()) {
             DispatchQueue.main.async {
-                if
-                    let minPath = self.document.minPath,
-                    let maxPath = self.document.maxPath {
                     
-                    self.minLabel.text = String(minPath.averageAQI!)
-                    self.maxLabel.text = String(maxPath.averageAQI!)
+                let cells = self.tableView.visibleCells as! [AQIStatTableViewCell]
+                for cell in cells {
+                    for stat in self.stats {
+                        if cell.title == stat.title {
+                            let path = stat.path
+                            cell.setPath(path)
+                            cell.accessoryType = .disclosureIndicator
+                            cell.isUserInteractionEnabled = true
+                        }
+                    }
                 }
                 
-                self.activityIndicator.stopAnimating()
+                self.spinner.stopAnimating()
             }
         }
     }
-    
-    
-    
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        if let id = segue.identifier {
+            switch id {
+            case "statSegue":
+                if let statVC = segue.destination as? AQIStatViewController {
+                    let ip = tableView.indexPathForSelectedRow!
+                    let selectedCell = tableView.cellForRow(at: ip) as! AQIStatTableViewCell
+                    let title = selectedCell.title
+                    let path = selectedCell.path
+                    statVC.path = path
+                    statVC.title = title
+                }
+            default: break
+            }
+        }
     }
-    */
 
+}
+
+struct AQIStat {
+    let title: String
+    var path: Path?
 }

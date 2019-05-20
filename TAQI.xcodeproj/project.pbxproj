@@ -53,6 +53,10 @@
 		438E651C228B8D7600A11491 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 438E651B228B8D7500A11491 /* Assets.xcassets */; };
 		438E651E228DD0C100A11491 /* DocumentMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438E651D228DD0C100A11491 /* DocumentMapViewController.swift */; };
 		43E82D702252AC8A00160356 /* ArcGIS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 43E82D6F2252AC8A00160356 /* ArcGIS.bundle */; };
+		43F9D42C22928C24008659AC /* DynamicMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F9D42B22928C24008659AC /* DynamicMapView.swift */; };
+		43F9D456229311EC008659AC /* DynamicMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43F9D455229311EC008659AC /* DynamicMapView.xib */; };
+		43F9D45D2293227C008659AC /* AQIStatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F9D45C2293227C008659AC /* AQIStatTableViewCell.swift */; };
+		43F9D45F22933547008659AC /* AQIStatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F9D45E22933547008659AC /* AQIStatViewController.swift */; };
 		53CA24E453FCA79F88A6533C /* Pods_TAQITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC4BF00C8D5C4FB47414FDC /* Pods_TAQITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -182,6 +186,10 @@
 		438E651B228B8D7500A11491 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		438E651D228DD0C100A11491 /* DocumentMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentMapViewController.swift; sourceTree = "<group>"; };
 		43E82D6F2252AC8A00160356 /* ArcGIS.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ArcGIS.bundle; path = ../../../../../Library/SDKs/ArcGIS/iOS/Frameworks/Static/ArcGIS.framework/Versions/Current/Resources/ArcGIS.bundle; sourceTree = "<group>"; };
+		43F9D42B22928C24008659AC /* DynamicMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicMapView.swift; sourceTree = "<group>"; };
+		43F9D455229311EC008659AC /* DynamicMapView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DynamicMapView.xib; sourceTree = "<group>"; };
+		43F9D45C2293227C008659AC /* AQIStatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIStatTableViewCell.swift; sourceTree = "<group>"; };
+		43F9D45E22933547008659AC /* AQIStatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIStatViewController.swift; sourceTree = "<group>"; };
 		5AC4BF00C8D5C4FB47414FDC /* Pods_TAQITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TAQITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61E36300214CF319152C974A /* Pods_TAQI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TAQI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2EC05C238449FB3CDA01702 /* Pods-TAQI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TAQI.debug.xcconfig"; path = "Target Support Files/Pods-TAQI/Pods-TAQI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -243,9 +251,9 @@
 				438A4E4F228F55B600DC1B5B /* InstructionsViewController.swift */,
 				438E651D228DD0C100A11491 /* DocumentMapViewController.swift */,
 				43399178227A68A9000C8E28 /* AnalysisViewController.swift */,
-				434901792194D147006A9672 /* Document.swift */,
-				4385676E22265FF600371171 /* Path.swift */,
-				43580DBB221B9DA800B48596 /* Location.swift */,
+				43F9D45E22933547008659AC /* AQIStatViewController.swift */,
+				43F9D4602293354E008659AC /* Models */,
+				43F9D46122933D59008659AC /* Views */,
 				4349017B2194D147006A9672 /* Main.storyboard */,
 				438E651B228B8D7500A11491 /* Assets.xcassets */,
 				434901802194D147006A9672 /* LaunchScreen.storyboard */,
@@ -402,6 +410,34 @@
 			path = "../../../../../Downloads/google-maps-ios-utils-master/src/QuadTree";
 			sourceTree = "<group>";
 		};
+		43F9D4542293113A008659AC /* DynamicMapView */ = {
+			isa = PBXGroup;
+			children = (
+				43F9D42B22928C24008659AC /* DynamicMapView.swift */,
+				43F9D455229311EC008659AC /* DynamicMapView.xib */,
+			);
+			path = DynamicMapView;
+			sourceTree = "<group>";
+		};
+		43F9D4602293354E008659AC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				434901792194D147006A9672 /* Document.swift */,
+				4385676E22265FF600371171 /* Path.swift */,
+				43580DBB221B9DA800B48596 /* Location.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		43F9D46122933D59008659AC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				43F9D4542293113A008659AC /* DynamicMapView */,
+				43F9D45C2293227C008659AC /* AQIStatTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		60B32660D3CF24B4B3817EEF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,6 +555,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				438A4E54228F57BC00DC1B5B /* takeout_instructions.rtf in Resources */,
+				43F9D456229311EC008659AC /* DynamicMapView.xib in Resources */,
 				434901822194D147006A9672 /* LaunchScreen.storyboard in Resources */,
 				43E82D702252AC8A00160356 /* ArcGIS.bundle in Resources */,
 				438E651A228B852A00A11491 /* magma.clr in Resources */,
@@ -652,6 +689,7 @@
 				438A4E49228F262600DC1B5B /* GMUGradient.m in Sources */,
 				438A4E46228F262600DC1B5B /* GMUDefaultClusterIconGenerator.m in Sources */,
 				438A4E44228F262600DC1B5B /* GMUNonHierarchicalDistanceBasedAlgorithm.m in Sources */,
+				43F9D45D2293227C008659AC /* AQIStatTableViewCell.swift in Sources */,
 				438A4E3E228F262600DC1B5B /* GMULineString.m in Sources */,
 				43580DBC221B9DA800B48596 /* Location.swift in Sources */,
 				438A4E43228F262600DC1B5B /* GMUSimpleClusterAlgorithm.m in Sources */,
@@ -661,8 +699,10 @@
 				438A4E3B228F262600DC1B5B /* GMUStyle.m in Sources */,
 				438A4E48228F262600DC1B5B /* GMUWeightedLatLng.m in Sources */,
 				438A4E3D228F262600DC1B5B /* GMUPair.m in Sources */,
+				43F9D45F22933547008659AC /* AQIStatViewController.swift in Sources */,
 				438A4E4B228F262600DC1B5B /* GQTPointQuadTree.m in Sources */,
 				438A4E42228F262600DC1B5B /* GMUWrappingDictionaryKey.m in Sources */,
+				43F9D42C22928C24008659AC /* DynamicMapView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
