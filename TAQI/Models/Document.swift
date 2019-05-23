@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Accelerate
 
 class Document: UIDocument {
     
@@ -65,4 +66,26 @@ class Document: UIDocument {
         
         self.paths = paths
     }
+    
+    func getAverage() -> Stat {
+        var aqis: [Double] = []
+        for path in paths {
+            for location in path.locations {
+                aqis.append(location.aqi!)
+            }
+        }
+        
+        var mean = 0.0
+        var stdDev = 0.0
+        vDSP_normalizeD(aqis, 1, nil, 1, &mean, &stdDev, vDSP_Length(aqis.count))
+        stdDev *= sqrt(Double(aqis.count)/Double(aqis.count - 1))
+        
+        let stat = Stat(mean: mean, stdDeviation: stdDev)
+        return stat
+    }
+}
+
+struct Stat {
+    let mean: Double
+    let stdDeviation: Double
 }

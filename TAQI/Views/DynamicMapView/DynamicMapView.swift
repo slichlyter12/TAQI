@@ -83,6 +83,7 @@ class DynamicMapView: UIView {
         // ArcGIS
         self.view.addSubview(arcGISMapView)
         setupLayout(mapView: arcGISMapView)
+        mapSegmentedControl.isEnabled = true
         
         setupRaster()
         createGraphicsOverlay()

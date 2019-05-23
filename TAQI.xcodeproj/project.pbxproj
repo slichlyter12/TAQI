@@ -12,6 +12,8 @@
 		432609F9227FA0C60051BCBC /* ArcGIS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432609F8227FA0C60051BCBC /* ArcGIS.framework */; };
 		432609FA227FA0C60051BCBC /* ArcGIS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 432609F8227FA0C60051BCBC /* ArcGIS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		43399179227A68A9000C8E28 /* AnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43399178227A68A9000C8E28 /* AnalysisViewController.swift */; };
+		434119C12295D32B0087D8AD /* AQIInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434119C02295D32B0087D8AD /* AQIInfoViewController.swift */; };
+		434119C32295D8320087D8AD /* aqiInfo.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 434119C22295D8320087D8AD /* aqiInfo.rtf */; };
 		434901742194D147006A9672 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434901732194D147006A9672 /* AppDelegate.swift */; };
 		434901762194D147006A9672 /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434901752194D147006A9672 /* DocumentBrowserViewController.swift */; };
 		4349017A2194D147006A9672 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434901792194D147006A9672 /* Document.swift */; };
@@ -99,6 +101,8 @@
 		43198E2322500C2C00221748 /* Location History.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "Location History.json"; path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/Documents/Timeline - Dev/Location History.json"; sourceTree = "<group>"; };
 		432609F8227FA0C60051BCBC /* ArcGIS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArcGIS.framework; path = ../../../../Library/SDKs/ArcGIS/iOS/Frameworks/Dynamic/ArcGIS.framework; sourceTree = "<group>"; };
 		43399178227A68A9000C8E28 /* AnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisViewController.swift; sourceTree = "<group>"; };
+		434119C02295D32B0087D8AD /* AQIInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIInfoViewController.swift; sourceTree = "<group>"; };
+		434119C22295D8320087D8AD /* aqiInfo.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = aqiInfo.rtf; sourceTree = "<group>"; };
 		434901702194D147006A9672 /* TAQI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TAQI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		434901732194D147006A9672 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		434901752194D147006A9672 /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
@@ -252,6 +256,7 @@
 				438E651D228DD0C100A11491 /* DocumentMapViewController.swift */,
 				43399178227A68A9000C8E28 /* AnalysisViewController.swift */,
 				43F9D45E22933547008659AC /* AQIStatViewController.swift */,
+				434119C02295D32B0087D8AD /* AQIInfoViewController.swift */,
 				43F9D4602293354E008659AC /* Models */,
 				43F9D46122933D59008659AC /* Views */,
 				4349017B2194D147006A9672 /* Main.storyboard */,
@@ -260,6 +265,7 @@
 				434901832194D147006A9672 /* Info.plist */,
 				438A4E4E228F265D00DC1B5B /* TAQI-Bridging-Header.h */,
 				438A4E53228F57BC00DC1B5B /* takeout_instructions.rtf */,
+				434119C22295D8320087D8AD /* aqiInfo.rtf */,
 				438E6518228B852A00A11491 /* magma.clr */,
 				438E6517228B852A00A11491 /* pnw.tif */,
 			);
@@ -556,6 +562,7 @@
 			files = (
 				438A4E54228F57BC00DC1B5B /* takeout_instructions.rtf in Resources */,
 				43F9D456229311EC008659AC /* DynamicMapView.xib in Resources */,
+				434119C32295D8320087D8AD /* aqiInfo.rtf in Resources */,
 				434901822194D147006A9672 /* LaunchScreen.storyboard in Resources */,
 				43E82D702252AC8A00160356 /* ArcGIS.bundle in Resources */,
 				438E651A228B852A00A11491 /* magma.clr in Resources */,
@@ -676,6 +683,7 @@
 				438A4E3F228F262600DC1B5B /* GMUGeoJSONParser.m in Sources */,
 				438A4E33228F262600DC1B5B /* GMUKMLParser.m in Sources */,
 				434901742194D147006A9672 /* AppDelegate.swift in Sources */,
+				434119C12295D32B0087D8AD /* AQIInfoViewController.swift in Sources */,
 				43399179227A68A9000C8E28 /* AnalysisViewController.swift in Sources */,
 				438A4E38228F262600DC1B5B /* GMUStyleMap.m in Sources */,
 				4385676F22265FF600371171 /* Path.swift in Sources */,

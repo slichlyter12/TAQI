@@ -15,6 +15,9 @@ class AnalysisViewController: UITableViewController {
     var document: Document!
     var loaded: Bool = false
     
+    var averageAQI: Double = 0.0
+    var stdDeviation: Double = 0.0
+    
     var stats: [AQIStat] = [
         AQIStat(title: "Minimum AQI", path: nil),
         AQIStat(title: "Maximum AQI", path: nil)
@@ -64,6 +67,13 @@ class AnalysisViewController: UITableViewController {
         spinner.hidesWhenStopped = true
         spinner.startAnimating()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: spinner)
+    }
+    
+    private func addInfoButton() {
+        let button = UIButton(type: .infoDark)
+        button.addTarget(self, action: #selector(showInfo), for: .touchUpInside)
+        let barItem = UIBarButtonItem(customView: button)
+        navigationItem.rightBarButtonItem = barItem
     }
     
     private func disableCells() {
@@ -123,7 +133,12 @@ class AnalysisViewController: UITableViewController {
                     }
                 }
                 
+                let stat = self.document.getAverage()
+                self.averageAQI = stat.mean
+                self.stdDeviation = stat.stdDeviation
+                
                 self.spinner.stopAnimating()
+                self.addInfoButton()
             }
         }
     }
@@ -146,9 +161,19 @@ class AnalysisViewController: UITableViewController {
                     statVC.path = path
                     statVC.title = title
                 }
+            case "statInfoSegue":
+                if let vc = segue.destination as? AQIInfoViewController {
+                    vc.averageAQI = averageAQI
+                    vc.stdDeviation = stdDeviation
+                }
+                
             default: break
             }
         }
+    }
+    
+    @objc func showInfo() {
+        self.performSegue(withIdentifier: "statInfoSegue", sender: self)
     }
 
 }

@@ -18,10 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GN5-O4-83f">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GN5-O4-83f">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="648"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -34,7 +35,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="GN5-O4-83f" firstAttribute="leading" secondItem="X9z-Qi-JNF" secondAttribute="leading" id="0F3-4a-1xm"/>
                             <constraint firstItem="GN5-O4-83f" firstAttribute="centerX" secondItem="2Hl-Ar-i2o" secondAttribute="centerX" id="5Di-c3-moC"/>
@@ -130,10 +131,14 @@
         <scene sceneID="c09-YV-enE">
             <objects>
                 <tableViewController title="My AQI Statistics" id="WJ6-TQ-dg2" customClass="AnalysisViewController" customModule="TAQI" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TBj-f8-a4h">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TBj-f8-a4h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexTrackingBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="aqiCell" id="RjL-1o-DCA" customClass="AQIStatTableViewCell" customModule="TAQI" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -145,13 +150,13 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="aqiStat:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbK-BC-hSG">
                                             <rect key="frame" x="16" y="12.000000000000002" width="59" height="19.666666666666671"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="aqiValue" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2DR-Uy-43a">
                                             <rect key="frame" x="83" y="12.000000000000002" width="276" height="19.666666666666671"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -165,6 +170,7 @@
                                         <constraint firstItem="fbK-BC-hSG" firstAttribute="top" secondItem="QRr-yG-aye" secondAttribute="topMargin" constant="1" id="Tdz-Dt-TJs"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="aqiStatLabel" destination="fbK-BC-hSG" id="Mny-mZ-fCx"/>
                                     <outlet property="aqiStatValueLabel" destination="2DR-Uy-43a" id="eEZ-G5-dGB"/>
@@ -178,6 +184,9 @@
                             <outlet property="delegate" destination="WJ6-TQ-dg2" id="Xq3-Oe-udF"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="TA9-gq-qOz" kind="show" identifier="statInfoSegue" id="HAY-gG-mZo"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oz9-cE-Pyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -212,6 +221,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDC-ZU-0Dc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4193" y="654"/>
+        </scene>
+        <!--What does it mean?-->
+        <scene sceneID="hXs-KC-eDG">
+            <objects>
+                <viewController id="TA9-gq-qOz" customClass="AQIInfoViewController" customModule="TAQI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5eg-ng-F6v">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average AQI:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="he1-y5-2wB">
+                                <rect key="frame" x="16" y="20" width="99" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBT-JT-tzu">
+                                <rect key="frame" x="123" y="20" width="236" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Standard Deviation:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lZ-4P-Jpw">
+                                <rect key="frame" x="16" y="49" width="151" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOc-MA-kfu">
+                                <rect key="frame" x="175" y="49" width="184" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CML-ci-hRS">
+                                <rect key="frame" x="16" y="78" width="343" height="612"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="he1-y5-2wB" firstAttribute="leading" secondItem="5eg-ng-F6v" secondAttribute="leadingMargin" id="4nL-V5-XZf"/>
+                            <constraint firstItem="he1-y5-2wB" firstAttribute="leading" secondItem="2lZ-4P-Jpw" secondAttribute="leading" id="A5b-ea-9bW"/>
+                            <constraint firstItem="he1-y5-2wB" firstAttribute="top" secondItem="5eg-ng-F6v" secondAttribute="top" constant="20" symbolic="YES" id="AhJ-oz-afO"/>
+                            <constraint firstItem="bBT-JT-tzu" firstAttribute="trailing" secondItem="vOc-MA-kfu" secondAttribute="trailing" id="C6N-jP-8Oa"/>
+                            <constraint firstItem="bBT-JT-tzu" firstAttribute="leading" secondItem="he1-y5-2wB" secondAttribute="trailing" constant="8" symbolic="YES" id="J2Z-lD-f9e"/>
+                            <constraint firstItem="CML-ci-hRS" firstAttribute="bottom" secondItem="uKk-9D-nea" secondAttribute="bottom" id="Kgs-Rj-ISL"/>
+                            <constraint firstItem="CML-ci-hRS" firstAttribute="top" secondItem="2lZ-4P-Jpw" secondAttribute="bottom" constant="8" symbolic="YES" id="LL9-2p-xsG"/>
+                            <constraint firstItem="2lZ-4P-Jpw" firstAttribute="leading" secondItem="CML-ci-hRS" secondAttribute="leading" id="Nu4-Ar-JxU"/>
+                            <constraint firstItem="vOc-MA-kfu" firstAttribute="trailing" secondItem="CML-ci-hRS" secondAttribute="trailing" id="O2B-PJ-nJw"/>
+                            <constraint firstItem="he1-y5-2wB" firstAttribute="baseline" secondItem="bBT-JT-tzu" secondAttribute="baseline" id="Z0G-re-70K"/>
+                            <constraint firstItem="2lZ-4P-Jpw" firstAttribute="top" secondItem="he1-y5-2wB" secondAttribute="bottom" constant="8" symbolic="YES" id="qVA-xj-Wx0"/>
+                            <constraint firstItem="bBT-JT-tzu" firstAttribute="trailing" secondItem="5eg-ng-F6v" secondAttribute="trailingMargin" id="qoV-sg-NW0"/>
+                            <constraint firstItem="vOc-MA-kfu" firstAttribute="leading" secondItem="2lZ-4P-Jpw" secondAttribute="trailing" constant="8" symbolic="YES" id="uW2-0b-k72"/>
+                            <constraint firstItem="2lZ-4P-Jpw" firstAttribute="baseline" secondItem="vOc-MA-kfu" secondAttribute="baseline" id="vDU-mL-zlT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uKk-9D-nea"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="What does it mean?" id="OJ5-Zt-tk5"/>
+                    <connections>
+                        <outlet property="averageAQILabel" destination="bBT-JT-tzu" id="qf6-bR-rr6"/>
+                        <outlet property="infoTextView" destination="CML-ci-hRS" id="Opb-oZ-Th1"/>
+                        <outlet property="stdDeviationLabel" destination="vOc-MA-kfu" id="E71-vD-7Hw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VZk-tY-NXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4193" y="1399"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GFD-DI-mXk">
