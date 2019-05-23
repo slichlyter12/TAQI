@@ -19,8 +19,8 @@ class AnalysisViewController: UITableViewController {
     var stdDeviation: Double = 0.0
     
     var stats: [AQIStat] = [
-        AQIStat(title: "Minimum AQI", path: nil),
-        AQIStat(title: "Maximum AQI", path: nil)
+        AQIStat(title: "Minimum PM2.5", path: nil),
+        AQIStat(title: "Maximum PM2.5", path: nil)
     ]
     
     private let dispatchGroup = DispatchGroup()
