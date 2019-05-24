@@ -24,7 +24,7 @@
                 <segmentedControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hqB-j2-BdE">
                     <rect key="frame" x="81.5" y="674" width="251" height="29"/>
                     <segments>
-                        <segment title="Air Quality"/>
+                        <segment title="Air Quality: NO2"/>
                         <segment title="Location Heatmap"/>
                     </segments>
                     <connections>

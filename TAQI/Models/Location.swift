@@ -17,7 +17,6 @@ class Location: NSObject, MKAnnotation {
     let altitude: Int?
     let verticalAccuracy: Int?
     let velocity: Int?
-    var aqi: Double?
     
     init?(google: [String: Any]) {
         let timestamp = Double(google["timestampMs"] as! String)
@@ -38,6 +37,5 @@ class Location: NSObject, MKAnnotation {
         self.altitude = google["altitude"] as? Int
         self.verticalAccuracy = google["verticalAccuracy"] as? Int
         self.velocity = google["velocity"] as? Int
-        self.aqi = nil
     }
 }

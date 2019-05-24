@@ -194,7 +194,6 @@ class DynamicMapView: UIView {
             googleMapView.isHidden = true
             
         case .google:
-            
            let viewpoint = arcGISMapView.currentViewpoint(with: .centerAndScale)
            setGoogleView(fromArcViewpoint: viewpoint!)
             

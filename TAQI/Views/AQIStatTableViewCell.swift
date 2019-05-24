@@ -39,7 +39,7 @@ class AQIStatTableViewCell: UITableViewCell {
         path = newPath
         let label: String
         if newPath != nil {
-            label = String(newPath!.averageAQI!)
+            label = String(newPath!.pm25!)
         } else {
             label = "loading..."
         }

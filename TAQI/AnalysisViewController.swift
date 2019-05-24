@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ArcGIS
 
 class AnalysisViewController: UITableViewController {
     
@@ -17,6 +18,9 @@ class AnalysisViewController: UITableViewController {
     
     var averageAQI: Double = 0.0
     var stdDeviation: Double = 0.0
+    
+    var failed: Bool = false
+    var distanceMeasurement: AGSLocationDistanceMeasurement?
     
     var stats: [AQIStat] = [
         AQIStat(title: "Minimum PM2.5", path: nil),
@@ -85,42 +89,59 @@ class AnalysisViewController: UITableViewController {
     }
     
     private func getAQIData() {
-        let paths = document.paths
+        let paths = document.getQueryPaths()
         var min: Double = Double(truncating: kCFNumberPositiveInfinity)
         var max: Double = Double(truncating: kCFNumberNegativeInfinity)
         
+        var counter = 0
         for path in paths {
             dispatchGroup.enter()
             let q = DispatchQueue(label: "aqiNetworkQuery", qos: .userInitiated)
             q.async {
-                path.getAQIs(completion: { (error) in
+                path.getAQI(completion: { (error) in
                     if error != nil {
-                        print(error?.localizedDescription ?? "Unknown Error Occurred")
+                        print("Get AQI Error: " + (error?.localizedDescription ?? "Unknown Error Occurred"))
+                        self.failed = true
                     } else {
-                        if let average = path.averageAQI {
+                        if let pm25 = path.pm25 {
                             
                             // get minimum AQI
-                            if average < min {
-                                min = average
+                            if pm25 < min {
+                                min = pm25
                                 self.stats[0].path = path
                             }
                             
                             // get max AQI
-                            if average > max {
-                                max = average
+                            if pm25 > max {
+                                max = pm25
                                 self.stats[1].path = path
                             }
                         }
                     }
                     
                     self.dispatchGroup.leave()
+                    counter += 1
+                    print("leaving: \(counter) of \(paths.count)")
                 })
             }
         }
         
         dispatchGroup.notify(queue: .global()) {
             DispatchQueue.main.async {
-                    
+                
+                print("all left")
+                
+//                if self.failed {
+//                    let errorAlert = UIAlertController(title: "Error", message: "Failed to load AQI data", preferredStyle: .alert)
+//                    let okayAction = UIAlertAction(title: "Okay", style: .default, handler: { (action) in
+//                        self.spinner.stopAnimating()
+//                    })
+//                    errorAlert.addAction(okayAction)
+//                    self.present(errorAlert, animated: true, completion: nil)
+//                    print("failed")
+//                    return
+//                }
+                
                 let cells = self.tableView.visibleCells as! [AQIStatTableViewCell]
                 for cell in cells {
                     for stat in self.stats {
@@ -181,4 +202,12 @@ class AnalysisViewController: UITableViewController {
 struct AQIStat {
     let title: String
     var path: Path?
+}
+
+extension Measurement where UnitType == Unit {
+    init(distance: AGSDistance) {
+        let unit = Unit(symbol: distance.unit.abbreviation)
+        let value = distance.value
+        self.init(value: value, unit: unit)
+    }
 }

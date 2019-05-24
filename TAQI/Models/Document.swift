@@ -12,8 +12,6 @@ import Accelerate
 class Document: UIDocument {
     
     var paths: [Path] = []
-    var minPath: Path?
-    var maxPath: Path?
     var package: FileWrapper?
     
     override func load(fromContents contents: Any, ofType typeName: String?) throws {
@@ -68,20 +66,41 @@ class Document: UIDocument {
     }
     
     func getAverage() -> Stat {
-        var aqis: [Double] = []
+        var pm25s: [Double] = []
         for path in paths {
-            for location in path.locations {
-                aqis.append(location.aqi!)
+            if let pm25 = path.pm25 {
+                pm25s.append(pm25)
             }
         }
         
         var mean = 0.0
         var stdDev = 0.0
-        vDSP_normalizeD(aqis, 1, nil, 1, &mean, &stdDev, vDSP_Length(aqis.count))
-        stdDev *= sqrt(Double(aqis.count)/Double(aqis.count - 1))
+        vDSP_normalizeD(pm25s, 1, nil, 1, &mean, &stdDev, vDSP_Length(pm25s.count))
+        stdDev *= sqrt(Double(pm25s.count)/Double(pm25s.count - 1))
         
         let stat = Stat(mean: mean, stdDeviation: stdDev)
         return stat
+    }
+    
+    func getQueryPaths() -> [Path] {
+        var queryPaths: [Path] = []
+        for path in self.paths {
+            if queryPaths.count == 0  {
+                queryPaths.append(path)
+            } else {
+                let newCoord = path.locations.first!.coordinate
+                let newPoint = CLLocation(latitude: newCoord.latitude, longitude: newCoord.longitude)
+                let oldPath = queryPaths.last!
+                let oldCoord = oldPath.locations.first!.coordinate
+                let oldPoint = CLLocation(latitude: oldCoord.latitude, longitude: oldCoord.longitude)
+                let distance = oldPoint.distance(from: newPoint)
+                if distance > 10000 {
+                    queryPaths.append(path)
+                }
+            }
+        }
+        
+        return queryPaths
     }
 }
 
