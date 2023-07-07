@@ -2,6 +2,8 @@
 
 A Google Timeline and Air Quality Analysis App
 
+(Pronounced like "tacky")
+
 This project was the main project to my Master's degree from [Oregon State University](https://oregonstate.edu)'s [Software Innovation program](https://research.engr.oregonstate.edu/si-lab/).
 Below is the abstract to the report I wrote about this project.
 For screenshots and a description of how the app works, see section 3 in the report.
