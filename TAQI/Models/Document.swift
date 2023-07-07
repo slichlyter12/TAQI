@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 import Accelerate
 
 class Document: UIDocument {
@@ -40,9 +41,9 @@ class Document: UIDocument {
         
         for location in locations {
             let calendar = Calendar.current
-            let lastTimestamp = pathLocations.last!.timestamp!
+            let lastTimestamp = pathLocations.last!.timestamp
             let fifteenMinutes = calendar.date(byAdding: .minute, value: 15, to: lastTimestamp)
-            if location.timestamp! < fifteenMinutes! {
+            if location.timestamp < fifteenMinutes! {
                 pathLocations.append(location)
             } else {
                 if pathLocations.count > 2 {

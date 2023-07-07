@@ -9,6 +9,7 @@
 import UIKit
 import ArcGIS
 import GoogleMaps
+import GoogleMapsUtils
 
 class DynamicMapView: UIView {
     

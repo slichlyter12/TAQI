@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "arcgis-runtime-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Esri/arcgis-runtime-ios",
+      "state" : {
+        "revision" : "815ff3ee731905a76cdf734a29bae98c3b074913",
+        "version" : "100.15.2"
+      }
+    },
+    {
+      "identity" : "google-maps-ios-utils",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/googlemaps/google-maps-ios-utils.git",
+      "state" : {
+        "revision" : "b56b39cec0e3d5938ddadbfeb4d3fec541ebbb5e",
+        "version" : "4.2.2"
+      }
+    }
+  ],
+  "version" : 2
+}

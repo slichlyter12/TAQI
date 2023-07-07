@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 
 class Location: NSObject, MKAnnotation {
-    let timestamp: Date!
+    let timestamp: Date
     let coordinate: CLLocationCoordinate2D
     let accuracy: Int?
     let heading: Int?
@@ -19,9 +19,17 @@ class Location: NSObject, MKAnnotation {
     let velocity: Int?
     
     init?(google: [String: Any]) {
-        let timestamp = Double(google["timestampMs"] as! String)
-        let date = Date(timeIntervalSince1970: timestamp! / 1000.0) // convert from miliseconds to seconds
-        self.timestamp = date
+        let timestamp = google["timestamp"] as! String
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        var date = dateFormatter.date(from: timestamp)
+        if date == nil {
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+            date = dateFormatter.date(from: timestamp)
+        }
+        self.timestamp = date!
         
         if
             let latitude = google["latitudeE7"] as? Double,
@@ -31,7 +39,7 @@ class Location: NSObject, MKAnnotation {
         } else {
             self.coordinate = CLLocationCoordinate2D()
         }
-        
+
         self.accuracy = google["accuracy"] as? Int
         self.heading = google["heading"] as? Int
         self.altitude = google["altitude"] as? Int
