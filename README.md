@@ -7,7 +7,7 @@ A Google Timeline and Air Quality Analysis App
 This project was the main project to my Master's degree from [Oregon State University](https://oregonstate.edu)'s [Software Innovation program](https://research.engr.oregonstate.edu/si-lab/).
 Below is the abstract to the report I wrote about this project.
 For screenshots and a description of how the app works, see section 3 in the report.
-The report in it's entirety [can be downloaded here](https://s3.us-west-2.amazonaws.com/samlichlyter.com-binaries/docs/TAQI+Report+-+revised.docx).
+The report in it's entirety [can be downloaded here](https://s3.us-west-2.amazonaws.com/samlichlyter.com-binaries/docs/TAQI+Report.pdf).
 
 ## Abstract
 
